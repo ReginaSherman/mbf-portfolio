@@ -1,0 +1,37 @@
+@import "mixins";
+
+.homepage-hero {
+    position: relative;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: $dark-gray;
+    top: 0;
+    right: 0;
+    // padding: 100px 500px 75px 0;
+    z-index: 2;
+  
+    @include devices(tablet) {
+      padding: 100px 400px 75px 0;
+    }
+  
+    @include devices(mobile) {
+      height: 90vh;
+      justify-content: flex-end;
+      padding: 20px;
+      padding-left: 0px;
+    }
+  
+    .description {
+      font-size: 40px;
+      font-weight: 100;
+  
+      @include devices(mobile) {
+        font-size: unset;
+        margin-right: 0px;
+      }
+    }
+  
+  }

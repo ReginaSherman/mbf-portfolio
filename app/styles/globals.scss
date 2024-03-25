@@ -1,0 +1,218 @@
+@import "mixins";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: black;
+  background: $white;
+  // overflow-x: hidden;
+  margin: 0;
+}
+
+.section {
+  position: relative;
+  margin: 40px 0;
+  scroll-margin-top: 150px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 75px;
+  @include devices(tablet) {
+    padding: 0 50px;
+  }
+
+  @include devices(mobile) {
+    padding: 0 20px;
+  }
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+//
+
+button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+}
+
+a.button,
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  text-transform: uppercase;
+
+  padding: 10px 30px;
+  margin: 7px;
+  font-size: 15px;
+  line-height: normal;
+
+  border-radius: 20px;
+
+  &.primary {
+    background: $teal-gradient;
+    color: $white;
+    border: 1px solid $teal;
+
+    &:hover {
+      color: $teal;
+      background: $white;
+    }
+  }
+
+  &.secondary {
+    border: 1px solid $teal;
+    color: white;
+
+    &:hover {
+      background: $teal-gradient;
+    }
+  }
+}
+
+//
+
+h1,
+.h1 {
+  font-size: 80px;
+  font-weight: regular;
+  line-height: 1;
+
+  @include devices(tablet) {
+    font-size: 50px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+//   font-family: var(--font-oswald);
+
+  @include devices(tablet) {
+    font-size: 30px;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+h3,
+.h3 {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+//   font-family: var(--font-oswald);
+
+  @include devices(tablet) {
+    font-size: 24px;
+  }
+
+  @include devices(mobile) {
+    font-size: 20px;
+  }
+}
+.super-header {
+  font-size: 18px;
+  font-weight: 400;
+//   color: $green;
+
+  @include devices(tablet) {
+    font-size: 16;
+  }
+}
+
+
+.footer {
+  background-color: $light-gray;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 54px;
+    padding-bottom: 54px;
+
+    @include devices(mobile) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      width: 275px;
+      height: 62px;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type {
+      @include devices(mobile) {
+        display: none;
+      }
+    }
+    ul {
+      list-style: none;
+
+      @include devices(mobile) {
+        padding-left: 0;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+    }
+
+    a {
+      color: $black;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
